@@ -1,0 +1,35 @@
+.btn, .btnReg {
+  width: 100px;
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.label {
+  display: block;
+  font-size: 18px;
+}
+
+.input {
+  width: 200px;
+  box-sizing: border-box;
+  height: 30px;
+  font-size: 16px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field:last-of-type {
+  margin-bottom: 0;
+}
+
+.headling {
+  text-align: center;
+}
+
+.btnReg {
+  width: 150px;
+}

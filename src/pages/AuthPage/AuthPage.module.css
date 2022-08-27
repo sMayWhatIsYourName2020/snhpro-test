@@ -1,0 +1,22 @@
+.wrapper {
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 150px;
+}
+
+.toggleWrapper {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.toggle {
+  width: 200px;
+  border: 1px solid black;
+}
+
+.toggle:first-of-type {
+  border-right: none;
+}

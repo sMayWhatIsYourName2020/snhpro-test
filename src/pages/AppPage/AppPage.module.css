@@ -1,0 +1,22 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.userInfo {
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.info {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+}

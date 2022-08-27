@@ -1,0 +1,13 @@
+.folderList {
+  width: 300px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.folder {
+  height: 50px;
+}

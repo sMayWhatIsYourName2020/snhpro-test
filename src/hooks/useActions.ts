@@ -1,11 +1,12 @@
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { userAsyncThunks } from '../store/slices/user.slice';
-import { noteActions } from '../store/slices/note.slice';
+import { notesAsyncThunks, notesActions } from '../store/slices/note.slice';
 
 const allActions = {
-  ...noteActions,
+  ...notesAsyncThunks,
   ...userAsyncThunks,
+  ...notesActions,
 }
 
 export const useActions = () => {

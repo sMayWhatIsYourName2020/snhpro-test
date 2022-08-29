@@ -1,26 +1,41 @@
-import { Ring } from '@uiball/loaders'
-
 import { Folder } from '../Folder/Folder';
 import styles from './FolderList.module.css';
 import { useGetFoldersQuery } from '../../services/FolderService';
 import { getToken } from '../../helpers/helpers';
+import { useState } from 'react';
+import { CreateFolder } from '../CreateFolder/CreateFolder';
+import { Modal } from '../Modal/Modal';
 
 export const FolderList = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const token = getToken();
-  const { data: folders, isLoading } = useGetFoldersQuery(token.accessToken);
+  const toggleModal = () => {
+    setIsOpen((state) => !state);
+  }
+  const { data: folders, isLoading } = useGetFoldersQuery();
   return (
     <div className={styles.folderList}>
+      <ul className={styles.list}>
+        {folders !== undefined
+        ?
+        folders.map((folder) => (
+          <Folder key={folder.id} {...folder} />
+        ))
+        :
+        null
+      }
+      </ul>
+      <button className={styles.create} onClick={toggleModal} >
+        <span className={styles.text}>Создать папку</span>
+      </button>
       {
-        isLoading || folders === undefined
+        isOpen
           ?
-          <Ring size={35} color="#231F20" />
+          <Modal>
+            <CreateFolder close={toggleModal} />
+          </Modal>
           :
-
-          <ul className={styles.list}>
-            {folders.map((folder) => (
-              <Folder key={folder.id} {...folder} />
-            ))}
-          </ul>
+          null
       }
     </div>
   );

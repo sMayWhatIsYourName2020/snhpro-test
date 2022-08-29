@@ -2,6 +2,26 @@ body {
   margin: 0;
   min-height: 100vh;
   width: 100%;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+input {
+  outline: none;
+}
+
+a {
+  color: black;
+}
+
+#modal {
+  position: absolute;
+  z-index: 10;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 button {
@@ -10,4 +30,68 @@ button {
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+}
+
+.White {
+  background-color: white;
+}
+
+.Blue {
+  background-color: blue;
+  color: white;
+}
+
+.Orange {
+  background-color: orange;
+}
+
+.Red {
+  background-color: red;
+}
+
+.Yellow {
+  background-color: yellow;
+}
+
+.Purple {
+  background-color: purple;
+  color: white;
+}
+
+.Pink {
+  background-color: pink;
+}
+
+.Green {
+  background-color: green;
+}
+
+.Lime {
+  background-color: lime;
+}
+
+.LightGray {
+  background-color: lightgray;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+.border-red {
+  border: 1px solid red;
+}
+
+.submitInner {
+  margin: 0 auto;
+  width: 35px;
+}
+
+.createSubmit {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

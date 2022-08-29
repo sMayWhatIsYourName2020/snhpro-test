@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { getToken } from '../helpers/helpers';
 import { IToken } from '../interfaces/token.interface';
 import { ILogin, IUserInfo } from '../interfaces/user.interface';
 import { base } from '../routes';
@@ -21,14 +22,21 @@ export const userAPI = createApi({
         body: data,
       }),
     }),
-    getUserInfo: builder.query<IUserInfo, string>({
-      query: (token) => ({
+    refreshToken: builder.query<IToken, Omit<IToken, 'accessToken'>>({
+      query: (data) => ({
+        url: '/refresh-token',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    getUserInfo: builder.query<IUserInfo, void>({
+      query: () => ({
         url: '/user',
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${getToken().accessToken}`,
         },
       })
     }),
   }),
 })
-export const { useLoginMutation, useRegisterMutation, useGetUserInfoQuery } = userAPI;
+export const { useLoginMutation, useRegisterMutation, useGetUserInfoQuery, useRefreshTokenQuery } = userAPI;

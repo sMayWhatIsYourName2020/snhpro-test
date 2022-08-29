@@ -11,3 +11,25 @@
 .folder {
   height: 50px;
 }
+
+.create {
+  height: 100px;
+  width: 300px;
+  margin: 0 auto;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 2px dashed green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: green;
+  font-size: 14px;
+}
+
+.create:hover {
+  background-color: green;
+  transition: 0.3s;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}

@@ -3,18 +3,17 @@ import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import { AppPage } from '../pages/AppPage/AppPage';
-import { getToken } from '../helpers/helpers';
+import { getUser } from '../helpers/helpers';
 
 const PrivateRoute: FC<{ children: JSX.Element }> = ({ children }) => {
-  const token = getToken();
-  if (token.accessToken === undefined) {
+  const user = getUser();
+  if (user.username === undefined) {
     return <Navigate to="/auth" />
   }
   return children;
 }
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>

@@ -19,7 +19,7 @@ const registerSchema = object({
 
 export const Register = () => {
   const navigate = useNavigate();
-  const [registerUser, { isSuccess: isRegisterSuccess, isError, error, data }] = useRegisterMutation();
+  const [registerUser] = useRegisterMutation();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { register, setFocus, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {

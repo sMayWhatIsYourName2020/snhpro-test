@@ -8,9 +8,11 @@
 
 .textArea {
   resize: none;
+
   box-sizing: border-box;
-  min-height: 400px;
   width: 100%;
+  min-height: 400px;
   padding: 5px;
+
   font-size: 16px;
 }

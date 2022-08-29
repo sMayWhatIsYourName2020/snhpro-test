@@ -1,20 +1,24 @@
-.btn, .btnReg {
+.btn,
+.btnReg {
   width: 100px;
-  margin: 0 auto;
-  border: 1px solid black;
-  margin-top: 20px;
   height: 40px;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  border: 1px solid black;
 }
 
 .label {
   display: block;
+
   font-size: 18px;
 }
 
 .input {
-  width: 200px;
   box-sizing: border-box;
+  width: 200px;
   height: 30px;
+
   font-size: 16px;
 }
 

@@ -7,7 +7,7 @@ import cn from 'classnames';
 import { Ring } from '@uiball/loaders'
 import { ILoginForm } from '../../interfaces/form.interface';
 import styles from './Login.module.css';
-import { ErrorInfo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoginMutation } from '../../services/UserService';
 
 const loginSchema = object({
@@ -18,7 +18,7 @@ const loginSchema = object({
 export const Login = () => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [loginUser, { isSuccess: isLoginSuccess, isError, error, data }] = useLoginMutation();
+  const [loginUser] = useLoginMutation();
   const { register, setFocus, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       username: '',

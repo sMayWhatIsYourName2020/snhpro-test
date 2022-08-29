@@ -1,18 +1,16 @@
 import { Folder } from '../Folder/Folder';
 import styles from './FolderList.module.css';
 import { useGetFoldersQuery } from '../../services/FolderService';
-import { getToken } from '../../helpers/helpers';
 import { useState } from 'react';
 import { CreateFolder } from '../CreateFolder/CreateFolder';
 import { Modal } from '../Modal/Modal';
 
 export const FolderList = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const token = getToken();
   const toggleModal = () => {
     setIsOpen((state) => !state);
   }
-  const { data: folders, isLoading } = useGetFoldersQuery();
+  const { data: folders } = useGetFoldersQuery();
   return (
     <div className={styles.folderList}>
       <ul className={styles.list}>

@@ -5,21 +5,19 @@ import styles from './Folder.module.css';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDeleteFolderMutation } from '../../services/FolderService';
-import { getToken } from '../../helpers/helpers';
 import { Modal } from '../Modal/Modal';
 import { UpdateFolder } from '../UpdateFolder/UpdateFolder';
 import { toast } from 'react-toastify';
 import { Waveform } from '@uiball/loaders';
 
 export const Folder: FC<IFolder> = ({ name, color, id }) => {
-  const token = getToken();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggleModal = () => {
     setIsOpen((state) => !state);
   };
   const { getNotes, setCurrentFolder } = useActions();
-  const [deleteFolder, { isSuccess: isDeleteSuccess, isError, error }] = useDeleteFolderMutation();
+  const [deleteFolder] = useDeleteFolderMutation();
   const folders = useTypedSelector((state) => state.noteReducer.folderIds);
   return (
     <li className={cn(styles.folder, {

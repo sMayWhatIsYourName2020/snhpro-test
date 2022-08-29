@@ -1,11 +1,12 @@
 body {
-  margin: 0;
-  min-height: 100vh;
+  box-sizing: border-box;
   width: 100%;
+  min-height: 100vh;
+  margin: 0;
   padding-top: 50px;
   padding-bottom: 25px;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+
+  font-family: Roboto, sans-serif;
 }
 
 input {
@@ -25,11 +26,14 @@ a {
 }
 
 button {
-  display: block;
-  border: none;
-  background-color: transparent;
   cursor: pointer;
+
+  display: block;
+
   padding: 0;
+
+  background-color: transparent;
+  border: none;
 }
 
 .White {
@@ -37,8 +41,9 @@ button {
 }
 
 .Blue {
-  background-color: blue;
   color: white;
+
+  background-color: blue;
 }
 
 .Orange {
@@ -54,8 +59,9 @@ button {
 }
 
 .Purple {
-  background-color: purple;
   color: white;
+
+  background-color: purple;
 }
 
 .Pink {
@@ -75,9 +81,10 @@ button {
 }
 
 .error {
-  color: red;
+  margin: 5px 0 0;
+
   font-size: 14px;
-  margin: 5px 0 0 0;
+  color: red;
 }
 
 .border-red {
@@ -85,13 +92,14 @@ button {
 }
 
 .submitInner {
-  margin: 0 auto;
   width: 35px;
+  margin: 0 auto;
 }
 
 .createSubmit {
-  width: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  width: 100px;
 }

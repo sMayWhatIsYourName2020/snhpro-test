@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react'
+import { FC } from 'react'
 import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 
 import { AuthPage } from '../pages/AuthPage/AuthPage';

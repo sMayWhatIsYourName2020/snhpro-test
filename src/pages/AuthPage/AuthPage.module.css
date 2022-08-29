@@ -7,13 +7,15 @@
 .toggleWrapper {
   display: flex;
   justify-content: space-between;
+
   margin: 0 auto;
   margin-bottom: 30px;
 }
 
 .toggle {
-  height: 50px;
   width: 200px;
+  height: 50px;
+
   border: 1px solid black;
 }
 

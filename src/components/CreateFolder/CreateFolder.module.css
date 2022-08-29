@@ -1,43 +1,50 @@
 .close {
-  border: 1px solid black;
   width: 30px;
   height: 30px;
+
+  border: 1px solid black;
   border-radius: 50%;
 }
 
 .wrapper {
   display: flex;
   justify-content: space-between;
+
   box-sizing: border-box;
-  padding: 25px;
   width: 400px;
   margin: 0 auto;
+  padding: 25px;
+
   border: 1px solid black;
 }
 
 .input {
-  width: 200px;
   box-sizing: border-box;
+  width: 200px;
   height: 30px;
+
   font-size: 16px;
 }
 
 .select {
+  width: 150px;
+  height: 30px;
+
+  font-size: 16px;
+
   background-color: transparent;
   border: 1px solid black;
-  height: 30px;
-  font-size: 16px;
-  width: 150px;
 }
 
 .submit {
-  height: 40px;
   width: 100px;
+  height: 40px;
+
   border: 1px solid black;
 }
 
 .headling {
-  margin: 0 0 30px 0;
+  margin: 0 0 30px;
 }
 
 .field {
@@ -46,5 +53,6 @@
 
 .label {
   display: block;
+
   font-size: 18px;
 }

@@ -1,4 +1,3 @@
-import Ring from '@uiball/loaders/dist/components/Ring';
 import { useEffect } from 'react';
 import { FolderList } from '../../components/FolderList/FolderList';
 import { NoteList } from '../../components/NoteList/NoteList';
@@ -16,7 +15,7 @@ export const AppPage = () => {
   const { data: tokenData, isSuccess: isSuccessToken } = useRefreshTokenQuery(postData, {
     pollingInterval: 900000,
   });
-  const { data, isLoading } = useGetUserInfoQuery();
+  const { data} = useGetUserInfoQuery();
   useEffect(() => {
     loginUser(user)
       .unwrap()

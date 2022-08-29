@@ -46,7 +46,6 @@ export const Folder: FC<IFolder> = ({ name, color, id }) => {
             .unwrap()
             .then(() => {
               toast.success('Папка была удалена успешно.');
-              close();
             })
             .catch(() => {
               toast.error('Удалить папку не удалось!');

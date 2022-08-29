@@ -8,9 +8,7 @@ import { Ring } from '@uiball/loaders'
 import { ILoginForm } from '../../interfaces/form.interface';
 import styles from './Login.module.css';
 import { ErrorInfo, useEffect, useState } from 'react';
-import { useActions } from '../../hooks/useActions';
 import { useLoginMutation } from '../../services/UserService';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 const loginSchema = object({
   username: string().required('Поле обязательно к заполнению').trim().max(32, 'Максимальная длина имени: 32 символа'),

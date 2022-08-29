@@ -1,13 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { folderAPI } from '../services/FolderService';
 import { userAPI } from '../services/UserService';
-import userReducer from './slices/user.slice';
 import noteReducer from './slices/note.slice';
 
 const rootReducer = combineReducers({
   [folderAPI.reducerPath]: folderAPI.reducer,
   [userAPI.reducerPath]: userAPI.reducer,
-  userReducer,
   noteReducer,
 })
 

@@ -7,22 +7,13 @@ import styles from './AppPage.module.css';
 
 export const AppPage = () => {
   const token = getToken();
-  const user = getUser();
   const postData: { refreshToken: string } = {
     refreshToken: token.refreshToken,
   };
-  const [loginUser] = useLoginMutation();
   const { data: tokenData, isSuccess: isSuccessToken } = useRefreshTokenQuery(postData, {
     pollingInterval: 900000,
   });
   const { data} = useGetUserInfoQuery();
-  useEffect(() => {
-    loginUser(user)
-      .unwrap()
-      .then((result) => {
-        localStorage.setItem('token', JSON.stringify(result));
-      });
-  }, [])
   if (isSuccessToken) {
     localStorage.setItem('token', JSON.stringify(tokenData));
   }

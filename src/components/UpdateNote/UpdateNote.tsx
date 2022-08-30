@@ -42,7 +42,7 @@ export const UpdateNote: FC<UpdateNoteProps> = ({ close, note: { color, id, titl
       .unwrap()
       .then(() => {
         toast.success('Заметка была отредактирована успешно.');
-        close();
+        close('update');
       })
       .catch(() => {
         toast.error('Отредактировать заметку не удалось!');
@@ -108,7 +108,7 @@ export const UpdateNote: FC<UpdateNoteProps> = ({ close, note: { color, id, titl
 
         }
       </form>
-      <button className={createFolderStyles.close} onClick={() => close()}>X</button>
+      <button className={createFolderStyles.close} onClick={() => close('transfer')}>X</button>
     </div>
   );
 };

@@ -7,7 +7,8 @@ const routes = {
   login: () => `${base}Account/login`,
   register: () => `${base}Account/register`,
   refreshToken: () => `${base}Account/refresh-token`,
-  getUserInfo: () => `${base}Account/user`
+  getUserInfo: () => `${base}Account/user`,
+  transferNote: (id: string, folderId: string) => `${base}Notes/${id}/move-to/${folderId}`
 }
 
 export default routes;

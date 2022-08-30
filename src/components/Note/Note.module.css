@@ -2,3 +2,27 @@
   max-width: 500px;
   height: auto;
 }
+
+.transfer {
+  width: 100%;
+  height: 50px;
+
+  color: #fff;
+  text-align: center;
+
+  background-color: #cf3476;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 9px;
+}
+
+.btn {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}
+
+@media (max-width: 650px) {
+  .btn:first-of-type {
+    border-bottom: none;
+  }
+}

@@ -7,6 +7,7 @@ import routes from '../../routes';
 import { INote } from '../../interfaces/note.interface';
 import { getToken } from '../../helpers/helpers';
 import { folderAPI } from '../../services/FolderService';
+import { IFolder } from '../../interfaces/folder.interface';
 
 interface IResponse {
   id: string;
@@ -89,14 +90,39 @@ export const updateNote = createAsyncThunk(
   },
 );
 
+export const transferNote = createAsyncThunk(
+  'note/transfer',
+  async ({ folderId, noteId }: {
+    noteId: string;
+    folderId: string;
+  }) => {
+    try {
+      const token = getToken();
+      await axios.post(routes.transferNote(noteId, folderId), {}, {
+        headers: {
+          Authorization: `Bearer ${token.accessToken}`,
+        }
+      });
+      return {
+        noteId,
+        folderId,
+      };
+    } catch (e) {
+      throw e;
+    }
+  }
+);
+
 const initialState: {
   notes: INote[],
   folderIds: string[],
   currentFolder: string,
+  folders: IFolder[]
 } = {
   notes: [],
   folderIds: [],
   currentFolder: '',
+  folders: [],
 };
 
 const notesSlice = createSlice({
@@ -138,10 +164,21 @@ const notesSlice = createSlice({
           return note;
         });
       })
+      .addCase(transferNote.fulfilled, (state, { payload: { folderId, noteId } }) => {
+        state.notes = state.notes.map((note) => {
+          if (note.id === noteId) {
+            note.folderId = folderId;
+          }
+          return note;
+        });
+      })
       .addMatcher(folderAPI.endpoints.deleteFolder.matchFulfilled, (state, { meta }) => {
         const folderId = meta.arg.originalArgs;
         state.folderIds = state.folderIds.filter((folder) => folderId !== folder);
         state.notes = state.notes.filter((note) => note.folderId !== folderId);
+      })
+      .addMatcher(folderAPI.endpoints.getFolders.matchFulfilled, (state, { payload }) => {
+        state.folders = payload;
       });
   }
 });

@@ -10,13 +10,19 @@ import { toast } from 'react-toastify';
 import { deleteNote } from '../../store/slices/note.slice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { Waveform } from '@uiball/loaders';
+import { TransferNote } from '../TransferNote/TransferNote';
 
 export const Note: FC<INote> = memo(({ color, content, id, title, created, folderId, updated }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpenUpdate, setIsOpenUpdate] = useState<boolean>(false);
+  const [isOpenTransfer, setIsOpenTransfer] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const toggleModal = () => {
-    setIsOpen((state) => !state);
+  const toggleModal = (modal: 'transfer' | 'update') => {
+    if (modal === 'transfer') {
+      setIsOpenTransfer((state) => !state);
+    } else {
+      setIsOpenUpdate((state) => !state);
+    }
   };
   return (
     <li className={cn(folderStyles.folder, {
@@ -30,11 +36,11 @@ export const Note: FC<INote> = memo(({ color, content, id, title, created, folde
         }></p>
       </div>
       <div className={folderStyles.inner}>
-        <button className={cn(folderStyles.btn, folderStyles.update)} onClick={(e) => {
+        <button className={cn(folderStyles.btn, folderStyles.update, styles.btn)} onClick={(e) => {
           e.stopPropagation();
-          toggleModal();
+          toggleModal('update');
         }}>Редактировать</button>
-        <button className={cn(folderStyles.btn, folderStyles.delete)} onClick={(e) => {
+        <button className={cn(folderStyles.btn, folderStyles.delete, styles.btn)} onClick={(e) => {
           setIsSubmitting(true);
           e.stopPropagation();
           dispatch(deleteNote(id))
@@ -56,13 +62,25 @@ export const Note: FC<INote> = memo(({ color, content, id, title, created, folde
           }
         </button>
       </div>
+      <button className={styles.transfer} onClick={() => {
+        toggleModal('transfer');
+      }}>Переместить</button>
       {
-        isOpen
+        isOpenUpdate
           ?
           <Modal>
             <UpdateNote close={toggleModal} note={{
               color, content, id, title, created, folderId, updated
             }} />
+          </Modal>
+          :
+          null
+      }
+      {
+        isOpenTransfer
+          ?
+          <Modal>
+            <TransferNote close={toggleModal} id={id} />
           </Modal>
           :
           null

@@ -1,10 +1,8 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 
 import { AuthPage } from '../pages/AuthPage/AuthPage';
-import { AppPage } from '../pages/AppPage/AppPage';
 import { getUser } from '../helpers/helpers';
-import { useLoginMutation } from '../services/UserService';
 import { Wrapper } from './Wrapper/Wrapper';
 
 const PrivateRoute: FC<{ children: JSX.Element }> = ({ children }) => {

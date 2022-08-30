@@ -165,12 +165,16 @@ const notesSlice = createSlice({
         });
       })
       .addCase(transferNote.fulfilled, (state, { payload: { folderId, noteId } }) => {
-        state.notes = state.notes.map((note) => {
-          if (note.id === noteId) {
-            note.folderId = folderId;
-          }
-          return note;
-        });
+        if (state.folderIds.includes(folderId)) {
+          state.notes = state.notes.map((note) => {
+            if (note.id === noteId) {
+              note.folderId = folderId;
+            }
+            return note;
+          });
+        } else {
+          state.notes = state.notes.filter((note) => note.id !== noteId);
+        }
       })
       .addMatcher(folderAPI.endpoints.deleteFolder.matchFulfilled, (state, { meta }) => {
         const folderId = meta.arg.originalArgs;

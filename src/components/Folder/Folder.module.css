@@ -53,3 +53,22 @@
 .name * {
   word-break: break-word;
 }
+
+@media (max-width: 650px) {
+  .inner {
+    display: block;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .delete {
+    border-bottom-left-radius: 9px;
+  }
+
+  .update {
+    border-right: none;
+    border-radius: 0;
+  }
+}

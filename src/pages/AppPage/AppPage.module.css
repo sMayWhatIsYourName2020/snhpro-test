@@ -1,12 +1,13 @@
 .wrapper {
+  box-sizing: border-box;
   width: 1000px;
   margin: 0 auto;
 }
 
 .userInfo {
-  width: 500px;
-  margin: 0 auto;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
+
+  text-align: center;
 }
 
 .info {
@@ -20,3 +21,16 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 1000px) {
+  .wrapper {
+    width: 100vw;
+    padding: 0 15px;
+  }
+}
+
+/* @media (max-width: 650px) {
+  .inner {
+    padding: 0 15px;
+  }
+} */

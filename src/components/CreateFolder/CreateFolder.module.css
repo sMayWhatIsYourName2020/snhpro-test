@@ -1,6 +1,8 @@
 .close {
   width: 30px;
+  min-width: 30px;
   height: 30px;
+  min-height: 30px;
 
   border: 1px solid black;
   border-radius: 50%;
@@ -55,4 +57,16 @@
   display: block;
 
   font-size: 18px;
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  .input {
+    width: 75%;
+  }
 }

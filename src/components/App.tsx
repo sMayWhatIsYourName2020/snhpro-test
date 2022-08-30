@@ -25,9 +25,7 @@ function App() {
           </PrivateRoute>
         } />
         <Route path="auth" element={
-          <div className="wrapper">
-            <AuthPage />
-          </div>
+          <AuthPage />
         } />
       </Routes>
     </BrowserRouter>

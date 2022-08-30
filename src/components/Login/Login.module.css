@@ -37,3 +37,9 @@
 .btnReg {
   width: 150px;
 }
+
+@media (max-width: 220px) {
+  .input {
+    width: 100%;
+  }
+}

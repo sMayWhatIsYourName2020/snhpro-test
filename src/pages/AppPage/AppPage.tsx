@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
 import { FolderList } from '../../components/FolderList/FolderList';
 import { NoteList } from '../../components/NoteList/NoteList';
-import { getToken, getUser } from '../../helpers/helpers';
-import { useGetUserInfoQuery, useLoginMutation, useRefreshTokenQuery } from '../../services/UserService';
+import { getToken} from '../../helpers/helpers';
+import { useGetUserInfoQuery,  useRefreshTokenQuery } from '../../services/UserService';
 import styles from './AppPage.module.css';
 
 export const AppPage = () => {

@@ -1,7 +1,13 @@
 .wrapper {
+  box-sizing: border-box;
   width: 1000px;
 
   background-color: #fff;
+}
 
-  /* min-height: calc(100vh - 50px); */
+@media (max-width: 1000px) {
+  .wrapper {
+    width: 100vw;
+    padding: 0 15px;
+  }
 }
